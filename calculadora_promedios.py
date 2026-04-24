@@ -31,7 +31,7 @@ def ingresar_calificaciones():
   notas = list()
   while(True):
     nombre_materia = input("\nIngrese nombre de la materia: ")
-    if(isinstance(nombre_materia, str)):
+    if not nombre_materia:
       print("\nNombre de materia invalido.\n")
     else:
       materias.append(nombre_materia)
