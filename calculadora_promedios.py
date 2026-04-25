@@ -1,10 +1,9 @@
 def main():
   print("*CALCULADOR DE PROMEDIO DE MATERIAS*\n")
   notas, materias = ingresar_calificaciones()
-  
   print(f"\nMaterias y sus calificaciones: ")
-  for i in len(materias):
-    print(f"\nMateria: {materias[i]}, Nota: {notas[i]}")
+  for i, materia in enumerate(materias):
+    print(f"Materia: {materia}, Nota: {notas[i]}")
   
   print(f"\nEl promedio general de calificaciones es: {calcular_promedio(notas):.2f}")
   
@@ -12,13 +11,13 @@ def main():
   print("\nlas materias aprobadas fueron:")
   if(len(aprobadas) > 0):
     for i in aprobadas:
-      print(f"{materias[i]}\n")
+      print(f"{materias[i]}")
   else:
     print("\nNinguna")      
   print("\nlas materias reprobadas fueron:")
   if(len(reprobadas) > 0):
     for i in reprobadas:
-      print(f"{materias[i]}\n")
+      print(f"{materias[i]}")
   else:
     print("\nNinguna")
   
@@ -32,21 +31,20 @@ def ingresar_calificaciones():
   while(True):
     nombre_materia = input("\nIngrese nombre de la materia: ")
     if not nombre_materia:
-      print("\nNombre de materia invalido.\n")
+      print("\nNombre de materia invalido.")
     else:
       materias.append(nombre_materia)
       while(True):
-        print(f"\nIngrese la calificacion de la materia {nombre_materia}: ")
-        calificacion_materia = input()
+        calificacion_materia = input(f"\nIngrese la calificacion de la materia {nombre_materia}: ")
         if(calificacion_materia.isnumeric()):
           nota = int(calificacion_materia)
-          if nota >= 0 & nota <= 10: 
+          if nota >= 0 and nota <= 10: 
             notas.append(nota)
             break
         else:
-          print("\nCalificion invalida\n")
+          print("\nCalificion invalida")
           
-    while(True):
+      while(True):
         print("\nDesea agregar mas materias?: S/N")
         opcion = input()
         if (opcion == 'S' or opcion == 's'):
